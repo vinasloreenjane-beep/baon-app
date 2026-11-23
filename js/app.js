@@ -16,13 +16,13 @@ toastEl.innerHTML = `<span>${esc(msg)}</span>`;
 
 if (action) {
 
-const b = document.createElement('button');
+    const b = document.createElement('button');
 
-b.textContent = action.label;
+    b.textContent = action.label;
 
-b.onclick = action.run;
+    b.onclick = action.run;
 
-toastEl.append(b);
+    toastEl.append(b);
 
 }
 
@@ -73,27 +73,27 @@ function renderSettings() {
 
 const routes = {
 
-home: renderHome, add: renderAdd,
+    home: renderHome, add: renderAdd,
 
-history: renderHistory, settings: renderSettings,
+    history: renderHistory, settings: renderSettings,
 
 };
 
 async function router() {
 
-const name = location.hash.replace('#/', '') || 'home';
+    const name = location.hash.replace('#/', '') || 'home';
 
-const render = routes[name] ?? renderHome;
+    const render = routes[name] ?? renderHome;
 
-document.querySelectorAll('.tabbar a').forEach((a) =>
+    document.querySelectorAll('.tabbar a').forEach((a) =>
 
-a.classList.toggle('active', a.dataset.route === name));
+    a.classList.toggle('active', a.dataset.route === name));
 
-await render();
+    await render();
 
-window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
-view.focus({ preventScroll: true });
+    view.focus({ preventScroll: true });
 
 }
 
